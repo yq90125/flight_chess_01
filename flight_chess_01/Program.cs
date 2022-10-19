@@ -53,47 +53,124 @@ namespace flight_chess
         }
         public static void Draw_map()
         {
+            //画第一横行
             for (int i = 0; i < 30; i++)
             {
-                if (PlayerPos[0] == PlayerPos[1] && PlayerPos[1] == i)
+                Console.Write(DrawStringMap(i));
+                //if (PlayerPos[0] == PlayerPos[1] && PlayerPos[1] == i)
+                //{
+                //    Console.Write(str);
+                //}
+                //else if (PlayerPos[0] == i)
+                //{
+                //    Console.Write(str);
+                //}
+                //else if (PlayerPos[1] == i)
+                //{
+                //    Console.Write(str);
+                //}
+                //else
+                //{
+                //    switch (Maps[i])
+                //    {
+                //        case 0:
+                //            Console.ForegroundColor = ConsoleColor.White;
+                //            Console.Write("□");
+                //            break;
+                //        case 1:
+                //            Console.ForegroundColor = ConsoleColor.Yellow;
+                //            Console.Write("◎");
+                //            break;
+                //        case 2:
+                //            Console.ForegroundColor = ConsoleColor.Red;
+                //            Console.Write("☆");
+                //            break;
+                //        case 3:
+                //            Console.ForegroundColor = ConsoleColor.Cyan;
+                //            Console.Write("▲");
+                //            break;
+                //        case 4:
+                //            Console.ForegroundColor = ConsoleColor.Green;
+                //            Console.Write("卐");
+                //            break;
+                //    }
+                //}
+            }
+            Console.WriteLine();
+            //画竖行
+            for (int i = 30; i < 35; i++)
+            {
+                for (int j = 0; j < 29; j++)
                 {
-                    Console.Write("<>");
+                    Console.Write("  ");
                 }
-                else if (PlayerPos[0] == i)
+                Console.WriteLine(DrawStringMap(i));
+            }
+            //第二横行
+            for (int i = 64; i > 34; i--)
+            {
+                Console.Write(DrawStringMap(i));
+            }
+            Console.WriteLine();
+            //画竖行
+            for (int i = 65; i < 70; i++)
+            {
+                Console.Write(DrawStringMap(i));
+                for (int j = 1; j < 30; j++)
                 {
-                    Console.Write("Ａ");
+                    Console.Write("  ");
                 }
-                else if (PlayerPos[1] == i)
+                Console.WriteLine();
+            }
+            //第三横行
+            for (int i = 70; i < 100; i++)
+            {
+                Console.Write(DrawStringMap(i));
+            }
+        }
+        public static string DrawStringMap(int i)
+        {
+            string str = "";
+            if (PlayerPos[0] == PlayerPos[1] && PlayerPos[1] == i)
+            {
+                str = "<>";
+            }
+            else if (PlayerPos[0] == i)
+            {
+                str = "Ａ";
+            }
+            else if (PlayerPos[1] == i)
+            {
+                str = "Ｂ";
+            } 
+            else
+            {
+                str = "  ";
+                switch (Maps[i])
                 {
-                    Console.Write("Ｂ");
-                }
-                else
-                {
-                    switch (Maps[i])
-                    {
-                        case 0:
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.Write("□");
-                            break;
-                        case 1:
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.Write("♥");
-                            break;
-                        case 2:
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.Write("☆");
-                            break;
-                        case 3:
-                            Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.Write("▲");
-                            break;
-                        case 4:
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.Write("卐");
-                            break;
-                    }
+                    case 0:
+                        Console.ForegroundColor = ConsoleColor.White;
+                        str = "□";
+                        break;
+                    case 1:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        str = "◎";
+                        break;
+                    case 2:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        str = "☆" ;
+                        break;
+                    case 3:
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        str = "▲" ;
+                        break;
+                    case 4:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        str = "卐";
+                        break;
                 }
             }
+            return str;
         }
     }
 }
